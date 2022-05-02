@@ -4,6 +4,7 @@
   "description": "a simple react ssr project",
   "main": "index.js",
   "scripts": {
+    "start": "node dist/server/app.js",
     "build": "concurrently \"pnpm build:client\" \"pnpm build:server\"",
     "build:client": "webpack --config build/webpack-client-config.js",
     "build:server": "webpack --config build/webpack-server-config.js"
@@ -35,7 +36,6 @@
     "eslint": "^8.14.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
-    "html-webpack-plugin": "^5.5.0",
     "isomorphic-style-loader": "^5.3.2",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",

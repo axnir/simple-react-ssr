@@ -10,12 +10,14 @@ const app = new Express();
 app.use('/public', Express.static(path.join(__dirname, "../dist/client")));
 
 app.get('/', async (req, res) => {
+
   let didError = false;
   const { pipe, abort } = renderToPipeableStream(
     <StaticRouter location={res.url}>
       <App />
     </StaticRouter>,
     {
+      bootstrapScripts: ['/public/main.js'],
       onShellReady() {
         res.statusCode = 200;
         res.setHeader('content-type', 'text/html; charset=utf-8');
@@ -29,4 +31,6 @@ app.get('/', async (req, res) => {
   );
 });
 
-app.listen(8888);
+app.listen(4000, () => {
+  console.log("service is running, port is 4000");
+});
