@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { useData } from '../store';
 import './index.less';
 
 const Index: FC = () => {
-  const str = 'this is a simple react ssr demo';
+  const { info } = useData();
 
   return (
     <>
-      <h1>{str}</h1>
-      <Link to="/info">Info</Link>
+      <h1>{info}</h1>
+      <Link to="/info">to Info</Link>
     </>
   )
 }

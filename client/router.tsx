@@ -5,7 +5,7 @@ import { StaticRouter } from 'react-router-dom/server';
 
 export interface IRouterProps {
   children: ReactNode;
-  _location: string;
+  _location?: string;
 }
 
 const Router: FC<IRouterProps> = ({ children, _location }) => {

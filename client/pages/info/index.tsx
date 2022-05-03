@@ -1,15 +1,19 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-const Index: FC = () => {
-  const str = 'info page';
+const Info: FC = () => {
+  const handleClick = (): void => {
+    alert('hello');
+  }
 
   return (
     <>
-      <h1>{str}</h1>
-      <Link to="/">Home</Link>
+      <h1>info page</h1>
+      <button type="button" onClick={handleClick}>click me</button>
+      <br />
+      <Link to="/">to Home</Link>
     </>
   )
 }
 
-export default Index;
+export default Info;

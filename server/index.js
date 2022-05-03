@@ -2,25 +2,30 @@ import Express from 'express';
 import path from 'path';
 import React from 'react';
 import { renderToPipeableStream } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom/server';
 import App from '../client/App';
+import { DataProvider } from '../client/store';
 
 const app = new Express();
 
 app.use('/public', Express.static(path.join(__dirname, "../dist/client")));
 
 app.get('/*', async (req, res) => {
+  const store = { info: 'this is a simple react ssr demo' };
+
   let didError = false;
   const { pipe, abort } = renderToPipeableStream(
-    <App _location={req.url} />,
+    <DataProvider value={store}>
+      <App _location={req.url} />
+    </DataProvider>,
     {
       bootstrapScripts: ['/public/main.js'],
-      onShellReady() {
+      bootstrapScriptContent: `window.__DATA__ = ${JSON.stringify(store)}`,
+      onShellReady () {
         res.statusCode = 200;
         res.setHeader('content-type', 'text/html; charset=utf-8');
         pipe(res);
       },
-      onShellError(x) {
+      onShellError (x) {
         didError = true;
         console.error(x);
       },

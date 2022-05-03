@@ -17,7 +17,6 @@ const App: FC<Pick<IRouterProps, '_location'>> = ({ _location }) => (
         }
       </Routes>
     </Router>
-
   </Html>
 );
 
