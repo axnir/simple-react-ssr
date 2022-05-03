@@ -2,8 +2,10 @@
 const path = require('path');
 const nodeExternals = require("webpack-node-externals");
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 module.exports = {
-  mode: 'production',
+  mode: isProduction ? 'production' : 'development',
   target: 'node',
   node: {
     // 使用__filename变量获取当前模块文件的带有完整绝对路径的文件名

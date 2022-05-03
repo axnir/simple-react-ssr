@@ -1,10 +1,23 @@
 import React, { FC } from 'react';
-import Index from './pages';
+import { Routes, Route } from 'react-router-dom';
 import Html from './components/Html';
+import Router from './router';
+import routes from './routes';
 
-const App: FC = () => (
+import type { IRouterProps } from './router';
+
+const App: FC<Pick<IRouterProps, '_location'>> = ({ _location }) => (
   <Html title="simple-react-ssr">
-    <Index />
+    <Router _location={_location}>
+      <Routes>
+        {
+          routes.map(route => (
+            <Route key={route.path} path={route.path} element={<route.element />} />
+          ))
+        }
+      </Routes>
+    </Router>
+
   </Html>
 );
 

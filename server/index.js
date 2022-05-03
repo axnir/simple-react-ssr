@@ -9,13 +9,10 @@ const app = new Express();
 
 app.use('/public', Express.static(path.join(__dirname, "../dist/client")));
 
-app.get('/', async (req, res) => {
-
+app.get('/*', async (req, res) => {
   let didError = false;
   const { pipe, abort } = renderToPipeableStream(
-    <StaticRouter location={res.url}>
-      <App />
-    </StaticRouter>,
+    <App _location={req.url} />,
     {
       bootstrapScripts: ['/public/main.js'],
       onShellReady() {

@@ -3,6 +3,6 @@
 
 ## features
 
-- [x] Streaming SSR
+- [x] streaming ssr
 
 - [ ] dev server
