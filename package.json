@@ -8,10 +8,10 @@
     "start:server": "nodemon dist/server/app.js",
     "build:prod": "run-s client:prod server:prod",
     "build:dev": "run-s client:dev server:dev",
-    "client:prod": "cross-env NODE_ENV=development webpack --config build/webpack-client-config.js",
-    "client:dev": "cross-env NODE_ENV=production webpack --config build/webpack-client-config.js",
-    "server:prod": "cross-env NODE_ENV=development webpack --config build/webpack-server-config.js",
-    "server:dev": "cross-env NODE_ENV=production webpack --config build/webpack-server-config.js"
+    "client:prod": "cross-env NODE_ENV=production webpack --config build/webpack-client-config.js",
+    "client:dev": "cross-env NODE_ENV=development webpack --config build/webpack-client-config.js",
+    "server:prod": "cross-env NODE_ENV=production webpack --config build/webpack-server-config.js",
+    "server:dev": "cross-env NODE_ENV=development webpack --config build/webpack-server-config.js"
   },
   "repository": {
     "type": "git",
