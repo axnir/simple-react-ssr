@@ -7,11 +7,11 @@ const Index: FC = () => {
   const { info } = useData();
 
   return (
-    <div className='index-container'>
+    <div className="index-container">
       <h1>{info}</h1>
       <Link to="/info">to Info</Link>
     </div>
-  )
-}
+  );
+};
 
 export default Index;

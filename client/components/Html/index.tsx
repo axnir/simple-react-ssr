@@ -14,9 +14,7 @@ const Html: FC<IHtmlProps> = ({ title, children }) => (
       <link rel="stylesheet" href="/public/main.css" />
       <title>{title}</title>
     </head>
-    <body>
-      {children}
-    </body>
+    <body>{children}</body>
   </html>
 );
 

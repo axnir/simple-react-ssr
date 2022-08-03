@@ -4,12 +4,12 @@ import Info from './pages/info';
 const routes = [
   {
     path: '/',
-    element: Home
+    element: Home,
   },
   {
     path: 'info/*',
-    element: Info
-  }
-]
+    element: Info,
+  },
+];
 
 export default routes;
