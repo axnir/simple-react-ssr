@@ -1,7 +1,10 @@
-import React, { createContext } from 'react';
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 
-const DataContext = createContext(null);
+interface DataContextInterface {
+  info: string;
+}
+
+const DataContext = createContext<DataContextInterface | null>(null);
 
 export const DataProvider = ({ children, value }) => (
   <DataContext.Provider value={value}>{children}</DataContext.Provider>

@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Html from './components/Html';
 import Router from './router';
 import routes from './routes';
+import Html from './components/Html';
 
 import type { IRouterProps } from './router';
 
