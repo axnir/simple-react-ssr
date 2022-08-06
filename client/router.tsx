@@ -1,7 +1,9 @@
-import React, { FC } from 'react';
-import { ReactNode } from 'react';
+// modules
+import { FC, ReactNode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
+// tools
+import isBrowser from './utils/isBrowser';
 
 export interface IRouterProps {
   children: ReactNode;
@@ -10,7 +12,7 @@ export interface IRouterProps {
 
 const Router: FC<IRouterProps> = ({ children, _location }) => {
   // 使用 window 判断当前所处环境
-  if (typeof window === 'object') {
+  if (isBrowser()) {
     return <BrowserRouter>{children}</BrowserRouter>;
   }
 
