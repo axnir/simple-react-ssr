@@ -14,12 +14,6 @@ module.exports = {
   ],
   rules: {
     "@typescript-eslint/no-var-requires": 0
+    "react/react-in-jsx-scope": 0
   },
-  settings: {
-    resct: {
-      pragma: "React",
-      fragment: "Fragment",
-      version: "detect"
-    }
-  }
 };
